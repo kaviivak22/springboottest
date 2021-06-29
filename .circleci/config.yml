@@ -34,9 +34,9 @@ jobs:
       - run:
           name: Build and push Docker image
           command: |
-          docker build -t springboot/spring-boot-docker .
-          echo "Image created sucessfully."
-      - save_cache:
+           docker build -t springboot/spring-boot-docker .
+           echo "Image created sucessfully."
+      - save_cache
           key: v1-spring-boot-test-{{ checksum "pom.xml" }}
           paths:
             - ~/.m2
