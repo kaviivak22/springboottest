@@ -27,4 +27,10 @@ class SpringbootApplicationTests {
 		int result = 9 - 3;
 		assertTrue(result == 6);
 	}
+
+	@Test
+	public void negativeTestSub(){
+		int result = 9 - 3;
+		assertFalse(result == 9);
+	}
 }
