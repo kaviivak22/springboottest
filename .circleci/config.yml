@@ -17,7 +17,7 @@ jobs:
       # Use mvn clean and package as the standard maven build phase
       - restore_cache:
           keys:
-            - v1-spring-boot-test-{{ checksum "project.clj" }}
+            - v1-spring-boot-test-{{ checksum "pom.xml" }}
             - v1-spring-boot-test-
       - run:
           name: Build
@@ -27,7 +27,7 @@ jobs:
           name: Test
           command: mvn test
       - save_cache:
-          key: v1-spring-boot-test-{{ checksum "project.clj" }}
+          key: v1-spring-boot-test-{{ checksum "pom.xml" }}
           paths:
             - ~/.m2
 
