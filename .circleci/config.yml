@@ -15,6 +15,10 @@ jobs:
       # Checkout the code as the first step.
       - checkout
       # Use mvn clean and package as the standard maven build phase
+      - restore_cache:
+          keys:
+            - v1-my-project-{{ checksum "project.clj" }}
+            - v1-my-project-
       - run:
           name: Build
           command: mvn -B -DskipTests clean package
@@ -22,6 +26,10 @@ jobs:
       - run:
           name: Test
           command: mvn test
+      - save_cache:
+          key: v1-my-project-{{ checksum "project.clj" }}
+          paths:
+            - ~/.m2
 
 workflows:
   # Below is the definition of your workflow.
