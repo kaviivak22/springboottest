@@ -39,3 +39,14 @@ workflows:
   sample: 
     jobs:
       - build-and-test
+
+    nightly:
+      triggers:
+        - schedule:
+            # At minute 0 past every 2nd hour.
+            cron: "0 */2 * * *"
+            filters:
+              branches:
+                only:
+                  - main
+                
