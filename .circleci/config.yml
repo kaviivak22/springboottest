@@ -29,10 +29,12 @@ jobs:
           name: Test
           command: mvn test
       - run: mvn dependency:go-offline
+      #- run: |
+         # echo "$DOCKER_PASS" | docker login --username $DOCKER_USER --password-stdin
       - run:
           name: Build and push Docker image
           docker build -t springboot/spring-boot-docker .
-          echo 'Image created sucessfully.'
+          echo "Image created sucessfully."
       - save_cache:
           key: v1-spring-boot-test-{{ checksum "pom.xml" }}
           paths:
