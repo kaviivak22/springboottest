@@ -39,7 +39,6 @@ workflows:
   sample: 
     jobs:
       - build-and-test
-
     nightly:
       triggers:
         - schedule:
@@ -49,4 +48,3 @@ workflows:
               branches:
                 only:
                   - main
-                
