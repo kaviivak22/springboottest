@@ -18,7 +18,7 @@ class SpringbootApplicationTests {
 	@Test
 	public void negativeTestAdd(){
 		int result = 3 + 3;
-		assertFalse(result == 8);
-		//assertTrue(result == 8);
+		//assertFalse(result == 8);
+		assertTrue(result == 8);
 	}
 }
