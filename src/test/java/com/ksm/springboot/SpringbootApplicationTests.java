@@ -21,4 +21,10 @@ class SpringbootApplicationTests {
 		assertFalse(result == 8);
 		//assertTrue(result == 8);
 	}
+
+	@Test
+	public void postiveTestSub(){
+		int result = 9 - 3;
+		assertTrue(result == 6);
+	}
 }
