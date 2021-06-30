@@ -30,11 +30,15 @@ jobs:
       #- run: mvn dependency:go-offline
       - setup_remote_docker:
           version: 19.03.13
-      - run:
-          name: Build and push Docker image
+      - run: |
           echo "$DOCKER_PASS" | docker login --username $DOCKER_USER --password-stdin
-          command: |
-            docker build -t springboot/spring-boot-docker .
+
+          # build the application image
+          - run: docker build -t springboot/spring-boot-docker .
+
+          # deploy the image
+          #- run: docker push company/app:$CIRCLE_BRANCH
+
       - save_cache:
           key: v1-spring-boot-test-{{ checksum "pom.xml" }}
           paths:
