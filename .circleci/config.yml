@@ -36,7 +36,7 @@ jobs:
           command: |
             TAG=$CIRCLE_BUILD_NUM
             echo "$DOCKER_PASS" | docker login --username $DOCKER_USER --password-stdin
-            docker build -t $DOCKER_USER/spring-boot-docker .
+            docker build -t $DOCKER_USER/spring-boot-docker:$TAG .
             docker push $DOCKER_USER/spring-boot-docker:$TAG
       - save_cache:
           key: v1-spring-boot-test-{{ checksum "pom.xml" }}
