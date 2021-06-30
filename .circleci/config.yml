@@ -34,6 +34,7 @@ jobs:
       - run:
           name: Build and push Docker image
           command: |
+            echo "$DOCKER_PASS" | docker login --username $DOCKER_USER --password-stdin
             docker build -t springboot/spring-boot-docker .
       - save_cache:
           key: v1-spring-boot-test-{{ checksum "pom.xml" }}
