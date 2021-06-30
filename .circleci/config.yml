@@ -32,9 +32,9 @@ jobs:
           version: 19.03.13
 
       - run:
-          TAG=$CIRCLE_BUILD_NUM
           name: Build and push Docker image
           command: |
+            TAG=$CIRCLE_BUILD_NUM
             echo "$DOCKER_PASS" | docker login --username $DOCKER_USER --password-stdin
             docker build -t $DOCKER_USER/spring-boot-docker .
             docker push $DOCKER_USER/spring-boot-docker:$TAG
